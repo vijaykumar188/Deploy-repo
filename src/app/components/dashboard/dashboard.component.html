@@ -1,1 +1,48 @@
-<p>dashboard works!</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th *ngFor="let header of headers" class="tableheaders">{{header}}</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody class="tableBody" *ngIf="items.length > 0; else emptyTableMessage">
+
+        <tr *ngFor="let item of items let i index">
+
+            <td style="color: brown;">{{ item.empid }}</td>
+
+            <td style="color: green;">{{ item.firstName }}</td>
+
+            <!-- <td style="color: brown;">{{ item.phone }}</td> -->
+
+            <td style="color: blue;">{{ item.designation }}</td>
+
+            <td style="color: brown;">{{ item.age }}</td>
+
+            <td style="color:green;">{{ item.email }}</td>
+
+            <td style="color:green;">{{ item.city }}</td>
+
+            <td>
+
+                <mat-icon  (click)="editClick(item.id)" style="color: blue;cursor: pointer;">edit</mat-icon> 
+                <mat-icon (click)="deleteClick(item.id)" style="color: red; cursor: pointer;">delete</mat-icon>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+</table>
+
+<ng-template #emptyTableMessage>
+
+    <p class="empty TableContainer">
+
+        <strong style="font-size: 16px;">NO DATA AVAILABLE</strong>
+
+    </p>
+
+</ng-template>
