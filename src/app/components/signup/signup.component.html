@@ -1,1 +1,20 @@
-<p>signup works!</p>
+<div class="bg-img">
+    <div class="container">
+        <h1 class="header"><b>SIGN UP</b></h1>
+
+        <label for="email" class="header">Email</label>
+        <input type="text" placeholder="Enter Email" id="email" [(ngModel)]="email">
+
+        <label for="psw" class="header">Password</label>
+        <input type="password" placeholder="Enter Password" id="passsword" [(ngModel)]="password">
+
+
+        <div style="display: flex;">
+            <button type="submit" class="btn" (click)="signUpClick()" [disabled]="formValidate()"
+                style="background-color:green;">Sign UP</button>
+            <div>
+                <button type="submit" class="btn btn-primary" style="margin-left:10px" (click)="loginClick()">Back to Login</button>
+            </div>
+        </div>
+    </div>
+</div>

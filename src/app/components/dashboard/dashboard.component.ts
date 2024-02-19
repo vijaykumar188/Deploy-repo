@@ -18,14 +18,18 @@ export class DashboardComponent {
   firstName: any
   empid: any
   gender:any
-  idCounter: number = 1;
+  idCounter: number = 0;
   updatecity: any
   updateage: any
   updatedesignation: any
   updateemail: any
   updatefirstName: any
-  addEmployee=false;
+  updateId:any
+  updategender: any
+  updaatempId: any
 
+  addEmployee=false;
+  selectedItem: any;
 
   ngOnInit(){
 
@@ -45,11 +49,19 @@ export class DashboardComponent {
     // ]
   }
 
-  editClick(id:number){
-  console.log("editClick",id);
-
-  this.sidenav.open()
-  
+  editClick(event: any) {
+    console.log("editClick", event);
+    this.updateage = event.age
+    this.updatecity = event.city
+    this.updatedesignation = event.designation
+    this.updateemail = event.email
+    this.updatefirstName = event.firstName
+    this.updateId = event.id 
+    this.updategender = event.gender
+    this.updaatempId = event.empid
+    this.selectedItem = { ...event };
+    
+    this.sidenav.open()
   }
   deleteClick(index:any){
     console.log("deleteClick",index);
@@ -95,7 +107,7 @@ formValidate1(){
 
 AddEmployee(){
   this.addEmployee = true;
-  this.sidenav.open()
+  // this.sidenav.open()
 }
 
 cancel(){
@@ -117,7 +129,38 @@ close(){
   this.sidenav.close()
 }
 submit(){
+  // debugger;
+  // let payload = {
+  //   'firstName': this.updatefirstName,
+  //   'designation':this.updatedesignation,
+  //   'age':this.updateage,
+  //   'email':this.updateemail,
+  //   'city':this.updatecity,
+  //   'empid': this.updaatempId,
+  //   'gender': this.updategender,
+  //   'id': this.updateId
+  // }
 
+    // const currentRecord = this.items.find((m: { id: any; }) => m.id == this.updateId);
+    // if(currentRecord != undefined){
+    //   const index = this.items.findIndex((m: { id: any; }) => m.id == this.updateId)
+    //   this.items.splice(index,1);
+    //   this.items.push(payload);
+    // }
+    //another approach
+
+    const index = this.items.findIndex((m: { id: any; }) => m.id == this.updateId);
+    if(index !== -1){
+      this.items[index].age = this.updateage;
+      this.items[index].designation = this.updatedesignation;
+      this.items[index].email = this.updateemail;
+      this.items[index].city = this.updatecity;
+      this.items[index].firstName = this.updatefirstName;
+    }
+    this.close();
+    
 }
+  
+
 options:string[] = ['Male','Female']
 }

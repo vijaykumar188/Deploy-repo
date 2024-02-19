@@ -151,14 +151,32 @@
             <mat-sidenav #sidenav class="sidenav" style="background-color: black;" mode="side" position="end" >
 
                 <div style="margin-top: 40px;margin-left: 60px;">
+                    <div style="display: flex;">
                     <h1 style="font-size: 30px;color: aliceblue;"><b>EDIT EMPLOYEE</b></h1>
-
-
-                    
-
+                  
+                        <span aria-hidden="true" style="font-size: 35px;
+                        color: white;
+                        margin-top: -10px;
+                        padding-left: 65px;cursor: pointer;" (click)="close()">&times;</span>
+                
+                    </div>
 
 
                     <div style="display: grid;">
+                    <div style="display: inline;padding-top: 15px;">
+                        <label for="FirstName" class="header" style="color: aliceblue;">Empl ID : </label>
+                       <span style="font-size: 15px;color: aliceblue;margin-left: 6px;">{{updaatempId}}</span>
+                    </div>
+
+                    <div style="display:inline;padding-top: 15px;">
+                        <label for="FirstName" class="header" style="color: aliceblue;">Gender :</label>
+                        <span style="font-size: 15px;color: aliceblue;margin-left: 6px;">{{updategender}}</span>
+                    </div>
+                </div>
+
+
+
+                    <div style="display: grid;padding-top: 15px;">
                         <label for="FirstName" class="header" style="color: aliceblue;">Name</label>
                         <input type="FirstName" style="width: 80%;" placeholder="Enter FirstName" id="firstName"
                             [(ngModel)]="updatefirstName">
