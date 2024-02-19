@@ -13,6 +13,7 @@ export class DashboardComponent {
   designation: any
   firstName: any
   empid: any
+  gender:any
   addEmployee=false;
 
 
@@ -21,10 +22,9 @@ export class DashboardComponent {
   }
 
 
-    headers = ['Emp ID' , 'Name', 'Designation', 'Age', 'Email', 'City', 'Action']
+    headers = ['Emp ID' , 'Name', 'Designation', 'Age', 'Email', 'City', 'Gender','Action']
 
-    items= [{'empid':'E123','firstName':'vijay','designation':'SE','age':'25','email':'vijisnv97@gmail.com','city':'shimoga','id':1},
-            {'empid':'E456','firstName':'ajay','designation':'ASE','age':'27','email':'ajay92@gmail.com','city':'Bengaluru','id':2}] 
+    items:any = []; 
  
 
   getTableData(){
@@ -45,6 +45,22 @@ export class DashboardComponent {
 
   Add(){
 
+    let payload = {
+      'empid': this.empid,
+      'firstName': this.firstName,
+      'designation':this.designation,
+      'age':this.age,
+      'email':this.email,
+      'city':this.city,
+      'gender':this.gender,
+      'id':1
+    }
+
+    this.items.push(payload)
+    this.reset();
+
+console.log(payload);
+
   }
 formValidate(){
 
@@ -52,9 +68,22 @@ formValidate(){
 
 AddEmployee(){
   this.addEmployee = true;
+  
 }
 
 cancel(){
   this.addEmployee = false;
+  this.reset();
+  
+}
+
+reset(){
+  this.empid=''
+  this.firstName=''
+  this.designation=''
+  this.age=''
+  this.email =''
+  this.city = ''
+  this.gender=''
 }
 }

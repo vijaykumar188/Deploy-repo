@@ -10,9 +10,19 @@
             </div>
 
             <div style="display: grid;padding-left: 140px;">
+                <label for="Gender" class="header"  style="color: aliceblue;">Gender</label>
+                <input type="Gender" style="width: 140%;" placeholder="Enter Gender" id="gender" [(ngModel)]="gender">
+            </div>
+
+            <div style="display: grid;padding-left: 140px;">
                 <label for="FirstName" class="header"  style="color: aliceblue;">Name</label>
                 <input type="FirstName" style="width: 140%;" placeholder="Enter FirstName" id="firstName"
                     [(ngModel)]="firstName">
+            </div>
+
+            <div style="display: grid;padding-left: 140px;">
+                <label for="Email" class="header"  style="color: aliceblue;">Email</label>
+                <input type="Email" style="width: 140%;" placeholder="Enter Email" id="email" [(ngModel)]="email">
             </div>
 
         </div>
@@ -29,20 +39,14 @@
                 <input type="Age" style="width: 140%;" placeholder="Enter Age" id="age" [(ngModel)]="age">
             </div>
 
-        </div>
-
-        <div style="padding-top: 1px;display: flex;">
-            <div style="display: grid;">
-                <label for="Email" class="header"  style="color: aliceblue;">Email</label>
-                <input type="Email" style="width: 140%;" placeholder="Enter Email" id="email" [(ngModel)]="email">
-            </div>
-
             <div style="display: grid;padding-left: 140px;">
                 <label for="City" class="header" style="color: aliceblue;">City</label>
                 <input type="City" style="width: 140%;" placeholder="Enter City" id="city" [(ngModel)]="city">
             </div>
 
         </div>
+
+      
 
 
 
@@ -96,9 +100,12 @@
             <td style="color:green;">{{ item.email }}</td>
 
             <td style="color:green;">{{ item.city }}</td>
+            <td style="color:green;"><img src="../../../assets/male.png" class="mal_image" *ngIf="item.gender === 'male'">
+                <img src="../../../assets/female.png" class="femal_image" *ngIf="item.gender === 'female'">{{ item.gender }}
+            </td>
 
+            
             <td>
-
                 <mat-icon (click)="editClick(item.id)" style="color: blue;cursor: pointer;">edit</mat-icon>
                 <mat-icon (click)="deleteClick(item.id)" style="color: red; cursor: pointer;">delete</mat-icon>
 
