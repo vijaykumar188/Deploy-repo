@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  email:any;
+  password:any;
+
+  clickSignup(){
+
+  }
+  formValidate(){
+
+  }
+  login(){
+
+  }
 }

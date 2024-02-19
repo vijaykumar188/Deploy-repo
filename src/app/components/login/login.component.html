@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="bg-img">
+    <div class="container">
+        <h1 class="header"><b>Login</b></h1>
+
+        <label for="email" class="header">Email</label>
+        <input type="text" placeholder="Enter Email" id="email" [(ngModel)]="email">
+
+        <label for="psw" class="header">Password</label>
+        <input type="password" placeholder="Enter Password" id="passsword" [(ngModel)]="password">
+
+
+        <div style="display: flex;">
+            <button type="submit" class="btn" (click)="login()" [disabled]="formValidate()"
+                style="background-color:green;">LOGIN</button>
+            <div>
+                <button type="submit" class="btn btn-primary" style="margin-left:10px" (click)="clickSignup()">SIGN
+                    UP</button>
+            </div>
+        </div>
+    </div>
+</div>
