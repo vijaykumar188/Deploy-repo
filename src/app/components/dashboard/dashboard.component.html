@@ -1,136 +1,210 @@
-<div class="bg-img">
-<div style="margin-left: 15px;" *ngIf="addEmployee">
-    <div style="margin-top: 10px;">
-        <h1 style="font-size: 30px;color: aliceblue;"><b>ADD EMPLOYEE</b></h1>
+<div>
+    <mat-drawer-container  autosize>
+        <div class="bg-img">
 
-        <div style="padding-top: 1px;display: flex;">
-            <div style="display: grid;">
-                <label for="Empid" class="header"  style="color: aliceblue;">Empid</label>
-                <input type="Empid" style="width: 140%;" placeholder="Enter Empid" id="empid" [(ngModel)]="empid">
-            </div>
+            <div style="margin-left: 15px;" *ngIf="addEmployee">
+                <div style="margin-top: 10px;">
+                    <h1 style="font-size: 30px;color: aliceblue;"><b>ADD EMPLOYEE</b></h1>
 
-            <div style="display: grid;padding-left: 140px;">
+                    <div style="padding-top: 1px;display: flex;">
+                        <div style="display: grid;">
+                            <label for="Empid" class="header" style="color: aliceblue;">Empid</label>
+                            <input type="Empid" style="width: 140%;" placeholder="Enter Empid" id="empid"
+                                [(ngModel)]="empid">
+                        </div>
+
+                        <div style="display: grid;padding-left: 140px;">
+                            <label for="Gender" class="header" style="color: aliceblue;">Select Gender</label>
+                            <select type="Gender" id="gender" style="width:300px;" placeholder="Select Gender"
+                                [(ngModel)]="gender">
+                                <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+                            </select>
+                        </div>
+
+                        <!-- <div style="display: grid;padding-left: 140px;">
                 <label for="Gender" class="header"  style="color: aliceblue;">Gender</label>
                 <input type="Gender" style="width: 140%;" placeholder="Enter Gender" id="gender" [(ngModel)]="gender">
+            </div> -->
+
+                        <div style="display: grid;padding-left:55px;">
+                            <label for="FirstName" class="header" style="color: aliceblue;">Name</label>
+                            <input type="FirstName" style="width: 140%;" placeholder="Enter FirstName" id="firstName"
+                                [(ngModel)]="firstName">
+                        </div>
+
+                        <div style="display: grid;padding-left: 140px;">
+                            <label for="Email" class="header" style="color: aliceblue;">Email</label>
+                            <input type="Email" style="width: 140%;" placeholder="Enter Email" id="email"
+                                [(ngModel)]="email">
+                        </div>
+
+                    </div>
+
+                    <div style="padding-top: 1px;display: flex;">
+                        <div style="display: grid;">
+                            <label for="Designation" class="header" style="color: aliceblue;">Designation</label>
+                            <input type="Designation" style="width: 140%;" placeholder="Enter Designation"
+                                id="firstName" [(ngModel)]="designation">
+                        </div>
+
+                        <div style="display: grid;padding-left: 140px;">
+                            <label for="Age" class="header" style="color: aliceblue;">Age</label>
+                            <input type="Age" style="width: 140%;" placeholder="Enter Age" id="age" [(ngModel)]="age">
+                        </div>
+
+                        <div style="display: grid;padding-left: 140px;">
+                            <label for="City" class="header" style="color: aliceblue;">City</label>
+                            <input type="City" style="width: 140%;" placeholder="Enter City" id="city"
+                                [(ngModel)]="city">
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    <div style="display: flex;padding-top: 10px;">
+                        <button type="submit" class="btn" (click)="Add()" [disabled]="formValidate()"
+                            style="background-color:green;width: 70px;">Add</button>
+                        <div>
+                            <button type="submit" class="btn btn-danger" style="margin-left:10px"
+                                (click)="cancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div style="display: grid;padding-left: 140px;">
-                <label for="FirstName" class="header"  style="color: aliceblue;">Name</label>
-                <input type="FirstName" style="width: 140%;" placeholder="Enter FirstName" id="firstName"
-                    [(ngModel)]="firstName">
+
+
+
+
+            <div style="display: flex; padding-top: 20px;">
+
+
+
+                <h1 style="font-size: 30px;margin-left: 15px;padding-top:0px;color: aliceblue;"><b>EMPLOYEE TABLE</b>
+                </h1>
+                <div style="margin-left: 30px;"> <button type="submit" class="btn btn-primary"
+                        (click)="AddEmployee()">ADD
+                        EMPLOYEE</button></div>
+
+
             </div>
 
-            <div style="display: grid;padding-left: 140px;">
-                <label for="Email" class="header"  style="color: aliceblue;">Email</label>
-                <input type="Email" style="width: 140%;" placeholder="Enter Email" id="email" [(ngModel)]="email">
-            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th *ngFor="let header of headers" class="tableheaders">{{header}}</th>
 
-        </div>
+                    </tr>
 
-        <div style="padding-top: 1px;display: flex;">
-            <div style="display: grid;">
-                <label for="Designation" class="header"  style="color: aliceblue;">Designation</label>
-                <input type="Designation" style="width: 140%;" placeholder="Enter Designation" id="firstName"
-                    [(ngModel)]="designation">
-            </div>
+                </thead>
 
-            <div style="display: grid;padding-left: 140px;">
-                <label for="Age" class="header"  style="color: aliceblue;">Age</label>
-                <input type="Age" style="width: 140%;" placeholder="Enter Age" id="age" [(ngModel)]="age">
-            </div>
+                <tbody class="tableBody" *ngIf="items.length > 0">
 
-            <div style="display: grid;padding-left: 140px;">
-                <label for="City" class="header" style="color: aliceblue;">City</label>
-                <input type="City" style="width: 140%;" placeholder="Enter City" id="city" [(ngModel)]="city">
-            </div>
+                    <tr *ngFor="let item of items let i index">
 
-        </div>
+                        <td style="color: brown;">{{ item.empid }}</td>
 
-      
+                        <td style="color: green;">{{ item.firstName }}</td>
 
+                        <!-- <td style="color: brown;">{{ item.phone }}</td> -->
 
+                        <td style="color: blue;">{{ item.designation }}</td>
 
-        <div style="display: flex;padding-top: 10px;">
-            <button type="submit" class="btn" (click)="Add()" [disabled]="formValidate()"
-                style="background-color:green;">Add</button>
-            <div>
-                <button type="submit" class="btn btn-danger" style="margin-left:10px" (click)="cancel()">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
+                        <td style="color: brown;">{{ item.age }}</td>
+
+                        <td style="color:green;">{{ item.email }}</td>
+
+                        <td style="color:green;">{{ item.city }}</td>
+                        <td style="color:green;"><img src="../../../assets/male.png" class="mal_image"
+                                *ngIf="item.gender === 'Male'">
+                            <img src="../../../assets/female.png" class="femal_image"
+                                *ngIf="item.gender === 'Female'">{{
+                            item.gender }}
+                        </td>
 
 
+                        <td>
+                            <mat-icon (click)="editClick(i)" style="color: blue;cursor: pointer;">edit</mat-icon>
+                            <mat-icon (click)="deleteClick(i)" style="color: red; cursor: pointer;">delete</mat-icon>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
 
 
 
-<div style="display: flex; padding-top: 20px;">
-    
-        
-  
-    <h1 style="font-size: 30px;margin-left: 15px;padding-top:0px;color: aliceblue;"><b>EMPLOYEE TABLE</b></h1>
-    <div style="margin-left: 30px;"> <button type="submit" class="btn btn-primary"  (click)="AddEmployee()">ADD EMPLOYEE</button></div>
-   
-
-</div>
-
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th *ngFor="let header of headers" class="tableheaders">{{header}}</th>
-
-        </tr>
-
-    </thead>
-
-    <tbody class="tableBody" *ngIf="items.length > 0">
-
-        <tr *ngFor="let item of items let i index">
-
-            <td style="color: brown;">{{ item.empid }}</td>
-
-            <td style="color: green;">{{ item.firstName }}</td>
-
-            <!-- <td style="color: brown;">{{ item.phone }}</td> -->
-
-            <td style="color: blue;">{{ item.designation }}</td>
-
-            <td style="color: brown;">{{ item.age }}</td>
-
-            <td style="color:green;">{{ item.email }}</td>
-
-            <td style="color:green;">{{ item.city }}</td>
-            <td style="color:green;"><img src="../../../assets/male.png" class="mal_image" *ngIf="item.gender === 'male'">
-                <img src="../../../assets/female.png" class="femal_image" *ngIf="item.gender === 'female'">{{ item.gender }}
-            </td>
-
-            
-            <td>
-                <mat-icon (click)="editClick(item.id)" style="color: blue;cursor: pointer;">edit</mat-icon>
-                <mat-icon (click)="deleteClick(item.id)" style="color: red; cursor: pointer;">delete</mat-icon>
-
-            </td>
-
-        </tr>
-
-    </tbody>
-</table>
-
-    <!-- <ng-template #emptyTableMessage>
-
-        <p>
-
-            <strong style="font-size: 16px;"  class="emptyTableContainer">NO DATA AVAILABLE</strong>
-
-        </p>
-
-    </ng-template> -->
-
-    <div class="emptyTableContainer" *ngIf="items.length === 0">
-        <p>
-            <strong style="font-size: 32px;color: black;background-color: grey;padding-left: 40px;padding-right: 40px;
+            <div class="emptyTableContainer" *ngIf="items.length === 0">
+                <p>
+                    <strong style="font-size: 32px;color: black;background-color: grey;padding-left: 40px;padding-right: 40px;
              padding-top: 35px;padding-bottom: 35px;">NO DATA AVAILABLE</strong>
-        </p>
-    </div>
+                </p>
+            </div>
 
+
+
+            <mat-sidenav #sidenav class="sidenav" style="background-color: black;" mode="side" position="end" >
+
+                <div style="margin-top: 40px;margin-left: 60px;">
+                    <h1 style="font-size: 30px;color: aliceblue;"><b>EDIT EMPLOYEE</b></h1>
+
+
+                    
+
+
+
+                    <div style="display: grid;">
+                        <label for="FirstName" class="header" style="color: aliceblue;">Name</label>
+                        <input type="FirstName" style="width: 80%;" placeholder="Enter FirstName" id="firstName"
+                            [(ngModel)]="updatefirstName">
+                    </div>
+
+                    <div style="display: grid;">
+                        <label for="Email" class="header" style="color: aliceblue;">Email</label>
+                        <input type="Email" style="width:80%;" placeholder="Enter Email" id="email"
+                            [(ngModel)]="updateemail">
+                    </div>
+
+
+
+
+                    <div style="display: grid;">
+                        <label for="Designation" class="header" style="color: aliceblue;">Designation</label>
+                        <input type="Designation" style="width: 80%;" placeholder="Enter Designation" 
+                            [(ngModel)]="updatedesignation">
+                    </div>
+
+                    <div style="display: grid;">
+                        <label for="Age" class="header" style="color: aliceblue;">Age</label>
+                        <input type="Age" style="width: 80%;" placeholder="Enter Age" id="age" [(ngModel)]="updateage">
+                    </div>
+
+                    <div style="display: grid;">
+                        <label for="City" class="header" style="color: aliceblue;">City</label>
+                        <input type="City" style="width: 80%;" placeholder="Enter City" id="city" [(ngModel)]="updatecity">
+                    </div>
+
+
+
+
+
+
+
+                    <div style="display: flex;padding-top: 10px;">
+                        <button type="submit" class="btn" (click)="submit()" [disabled]="formValidate1()"
+                            style="background-color:green;width: 70px;">EDIT</button>
+                        <div>
+                            <button type="submit" class="btn btn-danger" style="margin-left:10px"
+                                (click)="close()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </mat-sidenav>
+        </div>
+    </mat-drawer-container>
 </div>

@@ -118,7 +118,7 @@ input[type=Designation],
     
 input[type=Age],
 input[type=Email],
-input[type=Gender],
+select[type=Gender],
 input[type=City]
  {
 
@@ -126,7 +126,7 @@ width:100%;
 
 padding: 15px;
 
-height: 42px;
+height: 48px;
 
 margin: 5px 0 22px 0;
 
@@ -168,4 +168,17 @@ border-radius: 5px;
         height: 30px;
     width: 42px;
     padding-right: 5px;
+    }
+
+    .sidenav-container{
+        background-color: black;
+        // background-image: url("../../../assets/background.jpg");
+
+    }
+    .sidenav{
+        width: 25%;
+        right: 0;
+        top:0;
+        background-color: white;
+        height: 100vh;
     }

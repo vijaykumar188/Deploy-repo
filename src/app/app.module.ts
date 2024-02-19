@@ -8,6 +8,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
