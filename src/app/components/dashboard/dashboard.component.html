@@ -83,7 +83,7 @@
 
     </thead>
 
-    <tbody class="tableBody" *ngIf="items.length > 0; else emptyTableMessage">
+    <tbody class="tableBody" *ngIf="items.length > 0">
 
         <tr *ngFor="let item of items let i index">
 
@@ -116,14 +116,21 @@
     </tbody>
 </table>
 
-<ng-template #emptyTableMessage>
+    <!-- <ng-template #emptyTableMessage>
 
-    <p class="empty TableContainer">
+        <p>
 
-        <strong style="font-size: 16px;">NO DATA AVAILABLE</strong>
+            <strong style="font-size: 16px;"  class="emptyTableContainer">NO DATA AVAILABLE</strong>
 
-    </p>
+        </p>
 
-</ng-template>
+    </ng-template> -->
+
+    <div class="emptyTableContainer" *ngIf="items.length === 0">
+        <p>
+            <strong style="font-size: 32px;color: black;background-color: grey;padding-left: 40px;padding-right: 40px;
+             padding-top: 35px;padding-bottom: 35px;">NO DATA AVAILABLE</strong>
+        </p>
+    </div>
 
 </div>
