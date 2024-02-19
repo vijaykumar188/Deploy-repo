@@ -1,3 +1,75 @@
+<div class="bg-img">
+<div style="margin-left: 15px;" *ngIf="addEmployee">
+    <div style="margin-top: 10px;">
+        <h1 style="font-size: 30px;color: aliceblue;"><b>ADD EMPLOYEE</b></h1>
+
+        <div style="padding-top: 1px;display: flex;">
+            <div style="display: grid;">
+                <label for="Empid" class="header"  style="color: aliceblue;">Empid</label>
+                <input type="Empid" style="width: 140%;" placeholder="Enter Empid" id="empid" [(ngModel)]="empid">
+            </div>
+
+            <div style="display: grid;padding-left: 140px;">
+                <label for="FirstName" class="header"  style="color: aliceblue;">Name</label>
+                <input type="FirstName" style="width: 140%;" placeholder="Enter FirstName" id="firstName"
+                    [(ngModel)]="firstName">
+            </div>
+
+        </div>
+
+        <div style="padding-top: 1px;display: flex;">
+            <div style="display: grid;">
+                <label for="Designation" class="header"  style="color: aliceblue;">Designation</label>
+                <input type="Designation" style="width: 140%;" placeholder="Enter Designation" id="firstName"
+                    [(ngModel)]="designation">
+            </div>
+
+            <div style="display: grid;padding-left: 140px;">
+                <label for="Age" class="header"  style="color: aliceblue;">Age</label>
+                <input type="Age" style="width: 140%;" placeholder="Enter Age" id="age" [(ngModel)]="age">
+            </div>
+
+        </div>
+
+        <div style="padding-top: 1px;display: flex;">
+            <div style="display: grid;">
+                <label for="Email" class="header"  style="color: aliceblue;">Email</label>
+                <input type="Email" style="width: 140%;" placeholder="Enter Email" id="email" [(ngModel)]="email">
+            </div>
+
+            <div style="display: grid;padding-left: 140px;">
+                <label for="City" class="header" style="color: aliceblue;">City</label>
+                <input type="City" style="width: 140%;" placeholder="Enter City" id="city" [(ngModel)]="city">
+            </div>
+
+        </div>
+
+
+
+        <div style="display: flex;padding-top: 10px;">
+            <button type="submit" class="btn" (click)="Add()" [disabled]="formValidate()"
+                style="background-color:green;">Add</button>
+            <div>
+                <button type="submit" class="btn btn-danger" style="margin-left:10px" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div style="display: flex; padding-top: 20px;">
+    
+        
+  
+    <h1 style="font-size: 30px;margin-left: 15px;padding-top:0px;color: aliceblue;"><b>EMPLOYEE TABLE</b></h1>
+    <div style="margin-left: 30px;"> <button type="submit" class="btn btn-primary"  (click)="AddEmployee()">ADD EMPLOYEE</button></div>
+   
+
+</div>
+
 <table class="table table-hover">
     <thead>
         <tr>
@@ -27,14 +99,14 @@
 
             <td>
 
-                <mat-icon  (click)="editClick(item.id)" style="color: blue;cursor: pointer;">edit</mat-icon> 
+                <mat-icon (click)="editClick(item.id)" style="color: blue;cursor: pointer;">edit</mat-icon>
                 <mat-icon (click)="deleteClick(item.id)" style="color: red; cursor: pointer;">delete</mat-icon>
 
             </td>
 
         </tr>
 
-        </tbody>
+    </tbody>
 </table>
 
 <ng-template #emptyTableMessage>
@@ -46,3 +118,5 @@
     </p>
 
 </ng-template>
+
+</div>

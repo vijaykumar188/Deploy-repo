@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   header:any
+  city: any
+  email: any
+  age: any
+  designation: any
+  firstName: any
+  empid: any
+  addEmployee=false;
+
 
   ngOnInit(){
 
@@ -35,4 +43,18 @@ export class DashboardComponent {
     console.log("deleteClick",id);
   }
 
+  Add(){
+
+  }
+formValidate(){
+
+}
+
+AddEmployee(){
+  this.addEmployee = true;
+}
+
+cancel(){
+  this.addEmployee = false;
+}
 }
