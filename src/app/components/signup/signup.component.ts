@@ -8,13 +8,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
-  constructor(private router:Router,private snackbar:MatSnackBar){}
+  constructor(private router: Router, private snackbar: MatSnackBar) { }
 
-  
-  email:any;
-  password:any;
-  name:any
-  phone:any
+
+  email: any;
+  password: any;
+  name: any
+  phone: any
 
   isValidEmail(email: string): boolean {
     const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
@@ -25,42 +25,35 @@ export class SignupComponent {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
   }
- 
-  formValidate(){
-    if(this.isValidEmail(this.email) === true && this.isValidPassword(this.password) === true && this.name && this.phone){
+
+  formValidate() {
+    if (this.isValidEmail(this.email) === true && this.isValidPassword(this.password) === true && this.name && this.phone) {
       return false;
-    }else{
+    } else {
       return true;
     }
-
   }
-  
 
-  signUpClick(){
-    // this.router.navigate(['/dashboard'])
-    // const payload = {
-    //  'email': this.email,
-    //   'password':this.password
-    // }
 
-    localStorage.setItem('userEmail',this.email);
-    localStorage.setItem('userpassword',this.password);
-    localStorage.setItem('userName',this.name);
-    Swal.fire('User Added','User Added Succesfully','success')
-    this.snackbar.open('User Added Succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+  signUpClick() {
+    localStorage.setItem('userEmail', this.email);
+    localStorage.setItem('userpassword', this.password);
+    localStorage.setItem('userName', this.name);
+    Swal.fire('User Added', 'User Added Succesfully', 'success')
+    this.snackbar.open('User Added Succesfully', '', { panelClass: 'snackbar', duration: 3000, verticalPosition: 'top' })
     this.reset();
   }
 
-  loginClick(){
+  loginClick() {
     this.router.navigate(['/login'])
   }
-  reset(){
+
+  reset() {
     this.email = ''
     this.password = ''
-    this.phone = '' 
-    this.name=''
-   }
+    this.phone = ''
+    this.name = ''
+  }
 
-  
 
 }

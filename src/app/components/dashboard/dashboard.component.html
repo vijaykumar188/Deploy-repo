@@ -1,52 +1,35 @@
 <div>
-    <mat-drawer-container  autosize>
+    <mat-drawer-container autosize>
         <div class="bg-img">
-            <marquee behavior="scroll" direction="left" scrollamount="10" style="margin-top: 20px;background-color:forestgreen;">
-                <p style="font-size: 20px;color: black;font-weight: bold;margin-top: 6px;">On Click Of Add Employee Button,  Employee Details Fields Will Show  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click On Profile Icon For LogOut </p>
-               </marquee>
-
+            <marquee behavior="scroll" direction="left" scrollamount="10"
+                style="margin-top: 20px;background-color:forestgreen;">
+                <p style="font-size: 20px;color: black;font-weight: bold;margin-top: 6px;">On Click Of Add Employee
+                    Button, Employee Details Fields Will Show
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click
+                    On Profile Icon For LogOut </p>
+            </marquee>
             <mat-icon class="material-icons"
-            style="    position: absolute;
-            top: 25px;
-            right: 17px;
-            padding-right: 35px;
-            cursor: pointer;
-            font-size: 30px;
-            color: black;"
-            mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">account_circle</mat-icon>
-        
-        <mat-menu #menu="matMenu" class="logoutPopup">
-        
-            <!-- <mat-icon class="idcard">assignment_ind</mat-icon> -->
-            <i class="fas fa-id-card" style="padding-left: 95px;
+                style="position: absolute;top: 25px;right: 17px; padding-right: 35px;cursor: pointer;font-size: 30px;color: black;"
+                mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">account_circle</mat-icon>
 
-            font-size: 50px;
-            
-            align-items: center;
-            
-            justify-content: center;"></i>
-        
-            <p class="email"> {{userEmail}}</p>
-        
-            <button class="btn btn-danger" style="width: 230px;margin-left: 18px;margin-right: 18px;" (click)="logout()">
-        
-                Log Out
-        
-            </button>
-        
-        </mat-menu>
+            <mat-menu #menu="matMenu" class="logoutPopup">
+                <i class="fas fa-id-card"
+                    style="padding-left: 95px;font-size: 50px;align-items: center;justify-content: center;"></i>
+                <p class="email"> {{userEmail}}</p>
+                <button class="btn btn-danger" style="width: 230px;margin-left: 18px;margin-right: 18px;"
+                    (click)="logout()">
+                    Log Out
+                </button>
+            </mat-menu>
+
             <div style="margin-left: 15px;" *ngIf="addEmployee">
                 <div style="margin-top: 10px;">
-
-
-              
-                    <!-- <h1 style="font-size: 30px;color: aliceblue;"><b>ADD EMPLOYEE</b></h1> -->
-
                     <div style="padding-top: 1px;display: flex;">
                         <div style="display: grid;">
                             <label for="Empid" class="header" style="color: aliceblue;">Empid *</label>
                             <input type="Empid" style="width: 140%;" placeholder="Enter Empid (eg : E123)" id="empid"
-                                [(ngModel)]="empid" >
+                                [(ngModel)]="empid">
                         </div>
 
 
@@ -58,22 +41,11 @@
 
                         <div style="display: grid;padding-left: 140px;">
                             <label for="Email" class="header" style="color: aliceblue;">Email *</label>
-                            
                             <input type="Email" style="width: 140%;" placeholder="Enter Email" id="email"
-                                [(ngModel)]="email" >
-                                
-                                    <!-- <div *ngIf="!email">
-                                        Email is required.
-                                      </div> -->
-                                      
-                                       
-                                      <mat-error *ngIf="email && !isValidEmail(email)" style="margin-top: -20px;">
-                                        Please enter a valid email. </mat-error>   
-                                            
+                                [(ngModel)]="email">
+                            <mat-error *ngIf="email && !isValidEmail(email)" style="margin-top: -20px;">
+                                Please enter a valid email. </mat-error>
                         </div>
-                        
-                      
-
                     </div>
 
                     <div style="padding-top: 10px;display: flex;">
@@ -93,11 +65,9 @@
                             <input type="City" style="width: 140%;" placeholder="Enter City" id="city"
                                 [(ngModel)]="city">
                         </div>
-
                     </div>
 
                     <div>
-                        
                         <div style="display: grid;">
                             <label for="Gender" class="header" style="color: aliceblue;">Select Gender *</label>
                             <select type="Gender" id="gender" style="width:275px;" placeholder="Select Gender"
@@ -107,121 +77,80 @@
                         </div>
                     </div>
 
-
-
-
-
                     <div style="display: flex;padding-top: 10px;">
                         <button type="submit" class="btn" (click)="Add()" [disabled]="formValidate()"
                             style="background-color:green;width: 132px;color: white;">Add Employee</button>
                         <div>
-                            <button type="submit" class="btn" style="margin-left:10px;width: 132px;color: white;background-color: red;"
+                            <button type="submit" class="btn"
+                                style="margin-left:10px;width: 132px;color: white;background-color: red;"
                                 (click)="cancel()">Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-
-
-
             <div style="display: flex; padding-top: 20px;">
-
-
-
                 <h1 style="font-size: 30px;margin-left: 15px;padding-top:0px;color: aliceblue;"><b>EMPLOYEE TABLE</b>
                 </h1>
                 <div style="margin-left: 30px;"> <button type="submit" class="btn btn-primary"
-                        (click)="AddEmployee()">ADD
-                        EMPLOYEE</button></div>
-
-
+                        (click)="AddEmployee()">ADD EMPLOYEE</button></div>
             </div>
 
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th *ngFor="let header of headers" class="tableheaders">{{header}}</th>
-
                     </tr>
-
                 </thead>
 
                 <tbody class="tableBody" *ngIf="items.length > 0">
-
                     <tr *ngFor="let item of items let i index">
-
                         <td style="color: brown;">{{ item.empid }}</td>
-
                         <td style="color: green;">{{ item.firstName }}</td>
-
                         <!-- <td style="color: brown;">{{ item.phone }}</td> -->
-
                         <td style="color: blue;">{{ item.designation }}</td>
-
                         <td style="color: brown;">{{ item.age }}</td>
-
                         <td style="color:green;">{{ item.email }}</td>
-
                         <td style="color:green;">{{ item.city }}</td>
-                        <td style="color:green;"><img src="../../../assets/male.png" class="mal_image"
-                                *ngIf="item.gender === 'Male'">
+                        <td style="color:green;">
+                            <img src="../../../assets/male.png" class="mal_image" *ngIf="item.gender === 'Male'">
                             <img src="../../../assets/female.png" class="femal_image"
-                                *ngIf="item.gender === 'Female'">{{
-                            item.gender }}
+                                *ngIf="item.gender === 'Female'">{{item.gender }}
                         </td>
-
-
                         <td>
                             <mat-icon (click)="editClick(i)" style="color: blue;cursor: pointer;">edit</mat-icon>
                             <mat-icon (click)="deleteClick(i)" style="color: red; cursor: pointer;">delete</mat-icon>
-
                         </td>
-
                     </tr>
-
                 </tbody>
             </table>
 
-
-
             <div class="emptyTableContainer" *ngIf="items.length === 0">
-                <p>
-                    <strong style="font-size: 32px;color: black;background-color: grey;padding-left: 40px;padding-right: 40px;
-             padding-top: 35px;padding-bottom: 35px;">NO DATA AVAILABLE</strong>
+                <p><strong
+                        style="font-size: 32px;color: black;background-color: grey;padding-left: 40px;padding-right: 40px;padding-top: 35px;padding-bottom: 35px;">NO
+                        DATA AVAILABLE</strong>
                 </p>
             </div>
 
-
-
-            <mat-sidenav #sidenav class="sidenav" style="background-color: black;" mode="side" position="end" >
-
+            <mat-sidenav #sidenav class="sidenav" style="background-color: black;" mode="side" position="end">
                 <div style="margin-top: 40px;margin-left: 60px;">
                     <div style="display: flex;">
-                    <h1 style="font-size: 30px;color: aliceblue;"><b>EDIT EMPLOYEE</b></h1>
-                  
-                        <span aria-hidden="true" style="font-size: 35px;
-                        color: white;
-                        margin-top: -10px;
-                        padding-left: 65px;cursor: pointer;" (click)="close()">&times;</span>
-                
+                        <h1 style="font-size: 30px;color: aliceblue;"><b>EDIT EMPLOYEE</b></h1>
+                        <span aria-hidden="true"
+                            style="font-size: 35px;color: white;margin-top: -10px;padding-left: 65px;cursor: pointer;"
+                            (click)="close()">&times;</span>
                     </div>
-
-
                     <div style="display: grid;">
-                    <div style="display: inline;padding-top: 15px;">
-                        <label for="FirstName" class="header" style="color: aliceblue;">Empl ID : </label>
-                       <span style="font-size: 15px;color: aliceblue;margin-left: 6px;">{{updaatempId}}</span>
+                        <div style="display: inline;padding-top: 15px;">
+                            <label for="FirstName" class="header" style="color: aliceblue;">Empl ID : </label>
+                            <span style="font-size: 15px;color: aliceblue;margin-left: 6px;">{{updaatempId}}</span>
+                        </div>
+
+                        <div style="display:inline;padding-top: 15px;">
+                            <label for="FirstName" class="header" style="color: aliceblue;">Gender :</label>
+                            <span style="font-size: 15px;color: aliceblue;margin-left: 6px;">{{updategender}}</span>
+                        </div>
                     </div>
-
-                    <div style="display:inline;padding-top: 15px;">
-                        <label for="FirstName" class="header" style="color: aliceblue;">Gender :</label>
-                        <span style="font-size: 15px;color: aliceblue;margin-left: 6px;">{{updategender}}</span>
-                    </div>
-                </div>
-
-
 
                     <div style="display: grid;padding-top: 15px;">
                         <label for="FirstName" class="header" style="color: aliceblue;">Name</label>
@@ -235,12 +164,9 @@
                             [(ngModel)]="updateemail">
                     </div>
 
-
-
-
                     <div style="display: grid;">
                         <label for="Designation" class="header" style="color: aliceblue;">Designation</label>
-                        <input type="Designation" style="width: 80%;" placeholder="Enter Designation" 
+                        <input type="Designation" style="width: 80%;" placeholder="Enter Designation"
                             [(ngModel)]="updatedesignation">
                     </div>
 
@@ -251,15 +177,9 @@
 
                     <div style="display: grid;">
                         <label for="City" class="header" style="color: aliceblue;">City</label>
-                        <input type="City" style="width: 80%;" placeholder="Enter City" id="city" [(ngModel)]="updatecity">
+                        <input type="City" style="width: 80%;" placeholder="Enter City" id="city"
+                            [(ngModel)]="updatecity">
                     </div>
-
-
-
-
-
-
-
                     <div style="display: flex;padding-top: 10px;">
                         <button type="submit" class="btn" (click)="submit()" [disabled]="formValidate1()"
                             style="background-color:green;width: 70px;">Update</button>

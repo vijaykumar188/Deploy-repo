@@ -1,34 +1,37 @@
 <div class="bg-img">
 
-    <marquee behavior="scroll" direction="left" scrollamount="10" style="margin-top: 20px;background-color:forestgreen;">
-       <p style="font-size: 20px;
-       color: black;
-       font-weight: bold;margin-top: 6px;"> Welcome To Login Page Of Employee Portal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile Users Please Enable Desktop Site Option For Better Experience</p>
-      </marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="10"
+        style="margin-top: 20px;background-color:forestgreen;">
+        <p style="font-size: 20px;color: black;font-weight: bold;margin-top: 6px;"> Welcome To Login Page Of Employee Portal
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;Mobile
+            Users Please Enable Desktop Site Option For Better Experience</p>
+    </marquee>
 
     <div class="container">
         <h1 class="header"><b>Login</b></h1>
-
         <div>
-        <label for="email" class="header">Email*</label>
-        <input type="text" placeholder="Enter Email" id="email" [(ngModel)]="email">
-        <mat-error *ngIf="email && !isValidEmail(email)" style="margin-top:-20px;">
-            Please enter a valid email. </mat-error>   
+            <label for="email" class="header">Email*</label>
+            <input type="text" placeholder="Enter Email" id="email" [(ngModel)]="email">
+            <mat-error *ngIf="email && !isValidEmail(email)" style="margin-top:-20px;">
+                Please enter a valid email. </mat-error>
         </div>
         <div>
-        <label for="psw" class="header" style="padding-top: 20px;">Password*</label>
-        <input type="password" placeholder="Enter Password" id="passsword" [(ngModel)]="password">
-        <!-- <mat-error *ngIf="password && !isValidPassword(password)" style="margin-top:-20px;">
-            Please enter a valid Password. </mat-error>    -->
+            <label for="psw" class="header" style="padding-top: 20px;">Password*</label>
+            <input type="password" placeholder="Enter Password" id="passsword" [(ngModel)]="password">
         </div>
-
 
         <div style="display: flex;padding-top: 30px;">
             <button type="submit" class="btn" (click)="login()" [disabled]="formValidate()"
                 style="background-color:green;">LOGIN</button>
             <div>
-                <button type="submit" class="btn btn-primary" style="margin-left:10px" (click)="clickSignup()">SIGN
-                    UP</button>
+                <button type="submit" class="btn btn-primary" style="margin-left:10px" (click)="clickSignup()">SIGN UP</button>
             </div>
         </div>
     </div>

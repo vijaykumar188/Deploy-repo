@@ -1,99 +1,49 @@
 .table {
-
     width: 99%;
-
     height: max-content;
-
     background: #fefefe;
-
     border: 1px solid #ccc;
-
-    border-radius: 10px limportant;
-
+    border-radius: 10px !important;
     // box-shadow: 8px 8px 8px 8px #aaa;
-
     padding: 10px;
-
     margin: 10px;
-
     text-align: center;
-
-
 
 }
 
 .headers {
-
     display: flex;
-
 }
 
 .headerSection {
-
-    // height: 50px;
-
-    ///* margin-top: 10px; */
-
-    // background-color: cadetblue;
-
     margin-bottom: 50px;
-
     display: flex;
-
     padding-left: 15px;
-
     width: 99%;
-
     height: max-content;
-
     background: #fefefe;
-
-
     border: 1px solid #ccc;
-
     // box-shadow: 5px 7px 7px #aaa;
-
     margin: 5px;
-
     border-radius: 10px;
-
-
-
     padding: 10px;
-
     text-align: center;
-
 }
-
-
 
 header {
-    
     font-size: 40px;
-
 }
 
-
-
 .tableheaders {
-
     background-color: #aaa;
-
     height: 50px;
-
     font-size: 15px;
-
-
-
 }
 
 
 
 .tableBody {
-
-
-
-    background-color: aqua limportant;
+    // background-color: aqua !important;
 }
 
 .emptyTableContainer {
@@ -103,100 +53,77 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
-.container{
+.container {
     // padding-left: 50px;
 }
 
 
 input[type=Empid],
-    
 input[type=FirstName],
 input[type=Designation],
-    
 input[type=Age],
 input[type=Email],
 select[type=Gender],
-input[type=City]
- {
-
-width:100%;
-
-padding: 15px;
-
-height: 48px;
-
-margin: 5px 0 22px 0;
-
-// border: none;
-
-// background: #f1f1f1;
-
-border-radius: 5px;
+input[type=City] {
+    width: 100%;
+    padding: 15px;
+    height: 48px;
+    margin: 5px 0 22px 0;
+    border-radius: 5px;
 }
 
 .bg-img {
-
     /* The image used */
-    
     background-image: url("../../../assets/background.jpg");
-    
     /* Control the height of the image */
-    
     height: 100vh;
-    
     /* Center and scale the image nicely */
-    
     background-position: center;
-    
     background-repeat: no-repeat;
-    
     background-size: cover;
-    
     position: relative;
-    
-    }
-    .mal_image{
-        height: 33px;
+}
+
+.mal_image {
+    height: 33px;
     width: 42px;
     padding-right: 5px;
-    }
+}
 
-    .femal_image{
-        height: 30px;
+.femal_image {
+    height: 30px;
     width: 42px;
     padding-right: 5px;
-    }
+}
 
-    .sidenav-container{
-        background-color: black;
-        // background-image: url("../../../assets/background.jpg");
+.sidenav-container {
+    background-color: black;
+    // background-image: url("../../../assets/background.jpg");
+}
 
-    }
-    .sidenav{
-        width: 25%;
-        right: 0;
-        top:0;
-        background-color: white;
-        height: 100vh;
-    }
+.sidenav {
+    width: 25%;
+    right: 0;
+    top: 0;
+    background-color: white;
+    height: 100vh;
+}
 
-    .logoutPopup { width: 200px; height: 30vh; }
+.logoutPopup {
+    width: 200px;
+    height: 30vh;
+}
 
 .email {
-
-font-size: 20px; padding: 20px 20px 20px 20px; }
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+}
 
 .idcard {
-
-padding-left: 95px;
-
-font-size: 70px;
-
-align-items: center;
-
-justify-content: center;
-
+    padding-left: 95px;
+    font-size: 70px;
+    align-items: center;
+    justify-content: center;
 }
