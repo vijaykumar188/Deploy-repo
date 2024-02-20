@@ -70,24 +70,26 @@ this.userEmail  = localStorage.getItem('userEmail')
   }
   
   deleteClick(index:any){
-Swal.fire({
-  title:'Are you Sure ?',
-  text:'You will not able to recover this file',
-  icon:'warning',
-  showCancelButton:true,
-  confirmButtonText:'yes, Delete',
-  cancelButtonText:'No',
 
-}).then((res)=>{
-  if(res.value){
-    this.items = this.items.filter((item: { id: any; }) => item.id !== index.id);
-    Swal.fire('Deleted','your record has been deleted','success')
-    this.snackbar.open('Deleted succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
-  }else if(res.dismiss === Swal.DismissReason.cancel){
-    Swal.fire('cancelled','your record is safe')
+    this.dialogService.openPopup();
+// Swal.fire({
+//   title:'Are you Sure ?',
+//   text:'You will not able to recover this file',
+//   icon:'warning',
+//   showCancelButton:true,
+//   confirmButtonText:'yes, Delete',
+//   cancelButtonText:'No',
 
-  }
-})
+// }).then((res)=>{
+//   if(res.value){
+//     this.items = this.items.filter((item: { id: any; }) => item.id !== index.id);
+//     Swal.fire('Deleted','your record has been deleted','success')
+//     this.snackbar.open('Deleted succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+//   }else if(res.dismiss === Swal.DismissReason.cancel){
+//     Swal.fire('cancelled','your record is safe')
+
+//   }
+// })
     // this.dialogService.openPopup();
     // this.dialogService.openConfirmDialog('Are you sure you want to delete this Employee?').afterClosed().subscribe(res => {
 

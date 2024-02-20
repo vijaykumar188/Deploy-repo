@@ -1,18 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 
-import {
-
-MatDialog,
-
-MAT_DIALOG_DATA,
-
-MatDialogTitle,
-
-MatDialogContent,
-
-MatDialogRef
-
-} from '@angular/material/dialog';
+import{MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-confirm-popup',
@@ -20,12 +8,12 @@ MatDialogRef
   styleUrls: ['./confirm-popup.component.scss']
 })
 export class ConfirmPopupComponent {
-  constructor(public dialogRef: MatDialogRef<ConfirmPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(public dialogRef: MatDialogRef<ConfirmPopupComponent>) {}
 
   ngOnInit(): void {}
-  onNoClick() {
+  close() {
 
-    this.dialogRef.close(false)
+    this.dialogRef.close()
     
     }
     
@@ -33,5 +21,9 @@ export class ConfirmPopupComponent {
     
     this.dialogRef.close(true);
     
+    }
+
+    onNoClick(){
+      
     }
 }
