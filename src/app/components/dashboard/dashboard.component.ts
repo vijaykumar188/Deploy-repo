@@ -2,6 +2,8 @@ import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { DialogServiceService } from 'src/app/dialog-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  constructor(private router:Router,private snackbar:MatSnackBar){}
+  constructor(private router:Router,private snackbar:MatSnackBar,private dialogService:DialogServiceService){}
 
   @ViewChild('sidenav', { static: true }) sidenav!: MatSidenav;
 
@@ -66,11 +68,43 @@ this.userEmail  = localStorage.getItem('userEmail')
     
     this.sidenav.open()
   }
+  
   deleteClick(index:any){
-    console.log("deleteClick",index);
+Swal.fire({
+  title:'Are you Sure ?',
+  text:'You will not able to recover this file',
+  icon:'warning',
+  showCancelButton:true,
+  confirmButtonText:'yes, Delete',
+  cancelButtonText:'No',
+
+}).then((res)=>{
+  if(res.value){
     this.items = this.items.filter((item: { id: any; }) => item.id !== index.id);
-    
-  this.snackbar.open('Deleted succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+    Swal.fire('Deleted','your record has been deleted','success')
+    this.snackbar.open('Deleted succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+  }else if(res.dismiss === Swal.DismissReason.cancel){
+    Swal.fire('cancelled','your record is safe')
+
+  }
+})
+    // this.dialogService.openPopup();
+    // this.dialogService.openConfirmDialog('Are you sure you want to delete this Employee?').afterClosed().subscribe(res => {
+
+    //   console.log("res", res);
+      
+    //   if (res) {
+
+    //     console.log("deleteClick",index);
+    //     this.items = this.items.filter((item: { id: any; }) => item.id !== index.id);
+        
+    //   this.snackbar.open('Deleted succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+      
+    //   // this.userservice.deleteUser(id).subscribe(() => {
+      
+    //   // this.tableData.items - this.tableData.items.filter(user => user.id !== id);
+    //   }
+    //   });
   }
 
   Add(){
@@ -91,7 +125,7 @@ this.userEmail  = localStorage.getItem('userEmail')
     this.items.push(payload)
     localStorage.setItem('tableData', JSON.stringify(this.items))
     // this.getTableData();
-    
+    Swal.fire('Added','Employee Added succesfully','success')
   this.snackbar.open('Employee Added succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
     this.reset();
 
@@ -168,8 +202,8 @@ submit(){
       this.items[index].firstName = this.updatefirstName;
     }
     this.close();
-    
-  this.snackbar.open('Edited succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+    Swal.fire('Updated','Updated succesfully','success')
+  this.snackbar.open('Updated succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
     
 }
   
@@ -197,7 +231,7 @@ isValidEmail(email: string): boolean {
 logout() {
 
   this.router.navigate(['/login']);
-  
+  Swal.fire('LogedOut','Logout succesfully','success')
   this.snackbar.open('Logout succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
   
   localStorage.clear();

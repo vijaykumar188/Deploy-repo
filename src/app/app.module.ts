@@ -15,14 +15,16 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { ConfirmPopupComponent } from './components/confirm-popup/confirm-popup.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    ConfirmPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +36,11 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ConfirmPopupComponent]
 })
 export class AppModule { }

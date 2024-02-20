@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -46,6 +46,7 @@ export class SignupComponent {
     localStorage.setItem('userEmail',this.email);
     localStorage.setItem('userpassword',this.password);
     localStorage.setItem('userName',this.name);
+    Swal.fire('User Added','User Added Succesfully','success')
     this.snackbar.open('User Added Succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
     this.reset();
   }
