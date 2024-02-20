@@ -55,5 +55,9 @@ export class SignupComponent {
     this.name = ''
   }
 
+  redirectToGitHub(){
+    window.open('https://github.com/vijaykumar188/Deploy-repo')
+   }
+
 
 }

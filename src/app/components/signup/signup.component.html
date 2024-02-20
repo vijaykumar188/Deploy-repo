@@ -22,52 +22,64 @@
             Please Fill All the Required Fields</p>
     </marquee>
 
+
+    
     <div class="container">
         <h1 class="header"><b>SIGN UP</b></h1>
+        <label for="name" class="header">Name*</label>
+        <input type="text" placeholder="Enter Name" id="name" [(ngModel)]="name">
         <div>
-            <label for="name" class="header">Name*</label>
-            <input type="text" placeholder="Enter Name" id="name" [(ngModel)]="name">
+            <label for="phone" class="header">Phone*</label>
+            <input type="text" placeholder="Enter Phone"  id="phone" [(ngModel)]="phone">
             <div>
-                <label for="phone" class="header">Phone*</label>
-                <input type="text" placeholder="Enter Phone" id="phone" [(ngModel)]="phone">
+                <label for="email" class="header">Email*</label>
+                <input type="text" placeholder="Enter Email" id="email" [(ngModel)]="email">
+                <mat-error *ngIf="email && !isValidEmail(email)" style="margin-top: -20px;">
+                    Please enter a valid email. </mat-error>
+            </div>
+
+            <div>
+                <label for="psw" class="header">Password*</label><i class="fa fa-info-circle" style="color:snow;margin-left: 10px;cursor: pointer;    padding-left: 252px;
+                    font-size: 18px;" mat-icon-button [matMenuTriggerFor]="menu"
+                    aria-label="Example icon-button with a menu"></i>
+                <input type="password" placeholder="Enter Password" id="passsword" [(ngModel)]="password">
+                <mat-error *ngIf="password && !isValidPassword(password)"
+                    style="margin-top:-20px;padding-bottom: 20px;">
+                    Please enter a valid Password. </mat-error>
+            </div>
+
+            <mat-menu #menu="matMenu" class="logoutPopup">
+
+                <p class="email" style="font-size: 15px;font-weight: bold;font-style: normals;color:black">
+                    <li>
+                        <ol>
+                            At least one lowercase letter.<br>
+                            At least one uppercase letter.<br>
+                            At least one digit.<br>
+                            At least one special character (e.g., @$!%*?&).<br>
+                            Minimum length of 8 characters.
+                        </ol>
+                    </li>
+                </p>
+
+            </mat-menu>
+            <div style="display: flex;margin-top: 20px;">
+                <button type="submit" class="btn" (click)="signUpClick()" [disabled]="formValidate()"
+                    style="background-color:green;">Sign UP</button>
                 <div>
-                    <label for="email" class="header">Email*</label>
-                    <input type="text" placeholder="Enter Email" id="email" [(ngModel)]="email">
-                    <mat-error *ngIf="email && !isValidEmail(email)" style="margin-top: -20px;">
-                        Please enter a valid email. </mat-error>
-                </div>
-
-                <div>
-                    <label for="psw" class="header">Password*</label><i class="fa fa-info-circle" style="color:snow;margin-left: 10px;cursor: pointer;    padding-left: 252px;
-                    font-size: 18px;" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"></i>
-                    <input type="password" placeholder="Enter Password" id="passsword" [(ngModel)]="password">
-                    <mat-error *ngIf="password && !isValidPassword(password)"
-                        style="margin-top:-20px;padding-bottom: 20px;">
-                        Please enter a valid Password. </mat-error>
-                </div>
-
-                <mat-menu #menu="matMenu" class="logoutPopup">
-
-                    <p class="email" style="font-size: 15px;font-weight: bold;font-style: normals;color:black">
-                        <li>
-                            <ol>
-                                At least one lowercase letter.<br>
-                                At least one uppercase letter.<br>
-                                At least one digit.<br>
-                                At least one special character (e.g., @$!%*?&).<br>
-                                Minimum length of 8 characters.
-                            </ol>
-                        </li>
-                    </p>
-
-                </mat-menu>
-                <div style="display: flex;margin-top: 20px;">
-                    <button type="submit" class="btn" (click)="signUpClick()" [disabled]="formValidate()"
-                        style="background-color:green;">Sign UP</button>
-                    <div>
-                        <button type="submit" class="btn btn-primary" style="margin-left:10px"
-                            (click)="loginClick()">SIGN IN</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-left:10px" (click)="loginClick()">SIGN
+                        IN</button>
                 </div>
             </div>
         </div>
+
+    </div>
+    <div  style="position: absolute;bottom: 25px;right: 17px; padding-right: 20px;cursor: pointer;font-size: 20px;
+    color: black;
+    background-color: darkgreen;
+    font-weight: bold;
+    padding-top: 8px;
+    padding-left: 20px;">
+        <p>Source Code :<u (click)="redirectToGitHub()" style="cursor: pointer;">https://github.com/vijaykumar188/Deploy-repo</u></p>
+    </div>
+</div>

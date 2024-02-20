@@ -61,6 +61,10 @@ constructor(private router:Router,private authService: AuthService,private snack
     this.email = ''
     this.password = ''
    }
+
+   redirectToGitHub(){
+    window.open('https://github.com/vijaykumar188/Deploy-repo')
+   }
    
   
 }
