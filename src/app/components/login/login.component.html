@@ -1,15 +1,27 @@
 <div class="bg-img">
+
+    <marquee behavior="scroll" direction="left" scrollamount="10" style="padding-top: 20px;">
+       <p style="font-size: 20px;color: greenyellow;"> Welcome to Login Page of Employee Portal</p>
+      </marquee>
+
     <div class="container">
         <h1 class="header"><b>Login</b></h1>
 
-        <label for="email" class="header">Email</label>
+        <div>
+        <label for="email" class="header">Email*</label>
         <input type="text" placeholder="Enter Email" id="email" [(ngModel)]="email">
-
-        <label for="psw" class="header">Password</label>
+        <mat-error *ngIf="email && !isValidEmail(email)" style="margin-top:-20px;">
+            Please enter a valid email. </mat-error>   
+        </div>
+        <div>
+        <label for="psw" class="header" style="padding-top: 20px;">Password*</label>
         <input type="password" placeholder="Enter Password" id="passsword" [(ngModel)]="password">
+        <!-- <mat-error *ngIf="password && !isValidPassword(password)" style="margin-top:-20px;">
+            Please enter a valid Password. </mat-error>    -->
+        </div>
 
 
-        <div style="display: flex;">
+        <div style="display: flex;padding-top: 30px;">
             <button type="submit" class="btn" (click)="login()" [disabled]="formValidate()"
                 style="background-color:green;">LOGIN</button>
             <div>

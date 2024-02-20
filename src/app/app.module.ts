@@ -11,6 +11,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './service/auth.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +30,11 @@ import { AuthService } from './service/auth.service';
     FormsModule,
     MatIconModule,
     MatSidenavModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

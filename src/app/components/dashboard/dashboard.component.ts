@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +9,7 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  constructor(private router:Router,private snackbar:MatSnackBar){}
 
   @ViewChild('sidenav', { static: true }) sidenav!: MatSidenav;
 
@@ -30,9 +33,11 @@ export class DashboardComponent {
 
   addEmployee=false;
   selectedItem: any;
-
+  userEmail: any
   ngOnInit(){
+this.getTableData();
 
+this.userEmail  = localStorage.getItem('userEmail')
   }
 
 
@@ -42,9 +47,9 @@ export class DashboardComponent {
  
 
   getTableData(){
-  // localStorage.getItem('tableData')subscribe((data:any) =>{
-  //   let jsonData = data
-  // })
+  // const tableData:any = localStorage.getItem('tableData');
+  // const parseData =JSON.parse(tableData)
+  // this.items = parseData;
   }
 
   editClick(event: any) {
@@ -64,6 +69,8 @@ export class DashboardComponent {
   deleteClick(index:any){
     console.log("deleteClick",index);
     this.items = this.items.filter((item: { id: any; }) => item.id !== index.id);
+    
+  this.snackbar.open('Deleted succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
   }
 
   Add(){
@@ -83,6 +90,9 @@ export class DashboardComponent {
 
     this.items.push(payload)
     localStorage.setItem('tableData', JSON.stringify(this.items))
+    // this.getTableData();
+    
+  this.snackbar.open('Employee Added succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
     this.reset();
 
 console.log(payload);
@@ -159,8 +169,37 @@ submit(){
     }
     this.close();
     
+  this.snackbar.open('Edited succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+    
 }
   
 
 options:string[] = ['Male','Female']
+
+
+
+isValidEmail(email: string): boolean {
+  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+  return emailRegex.test(email);
+}
+
+// onSubmit() {
+//   // Handle form submission here
+//   if (!this.model.email || !this.isValidEmail(this.model.email)) {
+//     // Handle invalid form submission
+//     console.log('Invalid form submission');
+//   } else {
+//     // Perform actions on valid form submission
+//     console.log('Form submitted successfully');
+//   }
+// }
+
+logout() {
+
+  this.router.navigate(['/login']);
+  
+  this.snackbar.open('Logout succesfully', '',{panelClass: 'snackbar',duration:3000,verticalPosition:'top'})
+  
+  localStorage.clear();
+  }
 }
