@@ -13,20 +13,8 @@
                                 [(ngModel)]="empid">
                         </div>
 
-                        <div style="display: grid;padding-left: 140px;">
-                            <label for="Gender" class="header" style="color: aliceblue;">Select Gender</label>
-                            <select type="Gender" id="gender" style="width:300px;" placeholder="Select Gender"
-                                [(ngModel)]="gender">
-                                <option *ngFor="let option of options" [value]="option">{{ option }}</option>
-                            </select>
-                        </div>
 
-                        <!-- <div style="display: grid;padding-left: 140px;">
-                <label for="Gender" class="header"  style="color: aliceblue;">Gender</label>
-                <input type="Gender" style="width: 140%;" placeholder="Enter Gender" id="gender" [(ngModel)]="gender">
-            </div> -->
-
-                        <div style="display: grid;padding-left:55px;">
+                        <div style="display: grid;padding-left:140px;">
                             <label for="FirstName" class="header" style="color: aliceblue;">Name</label>
                             <input type="FirstName" style="width: 140%;" placeholder="Enter FirstName" id="firstName"
                                 [(ngModel)]="firstName">
@@ -58,6 +46,17 @@
                                 [(ngModel)]="city">
                         </div>
 
+                    </div>
+
+                    <div>
+                        
+                        <div style="display: grid;">
+                            <label for="Gender" class="header" style="color: aliceblue;">Select Gender</label>
+                            <select type="Gender" id="gender" style="width:298px;" placeholder="Select Gender"
+                                [(ngModel)]="gender">
+                                <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+                            </select>
+                        </div>
                     </div>
 
 

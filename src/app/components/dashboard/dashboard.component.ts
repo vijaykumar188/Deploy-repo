@@ -42,11 +42,9 @@ export class DashboardComponent {
  
 
   getTableData(){
-    // this.tableData.items = [
-    //   {
-    //     'empid':'E123'
-    //   }
-    // ]
+  // localStorage.getItem('tableData')subscribe((data:any) =>{
+  //   let jsonData = data
+  // })
   }
 
   editClick(event: any) {
@@ -82,7 +80,9 @@ export class DashboardComponent {
     }
    
 
+
     this.items.push(payload)
+    localStorage.setItem('tableData', JSON.stringify(this.items))
     this.reset();
 
 console.log(payload);
