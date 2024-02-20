@@ -97,6 +97,13 @@ position: relative;
     
      }
 
-     .mat-mdc-menu-panel.mat-mdc-menu-panel{
-max-width: 340px !important;
+     ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel{
+      max-width: 380px !important;
+     }
+
+     ::ng-deep .mat-mdc-menu-content {
+        margin: 0;
+        padding: 8px 0;
+        list-style-type: none;
+        background-color: steelblue
      }
