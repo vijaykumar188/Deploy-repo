@@ -1,14 +1,18 @@
 <div>
     <mat-drawer-container  autosize>
         <div class="bg-img">
+            <marquee behavior="scroll" direction="left" scrollamount="10" style="margin-top: 20px;background-color:forestgreen;">
+                <p style="font-size: 20px;color: black;font-weight: bold;margin-top: 6px;">On Click Of Add Employee Button,  Employee Details Fields Will Show  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click On Profile Icon For LogOut </p>
+               </marquee>
+
             <mat-icon class="material-icons"
             style="    position: absolute;
             top: 25px;
             right: 17px;
             padding-right: 35px;
             cursor: pointer;
-            font-size: 27px;
-            color: snow;"
+            font-size: 30px;
+            color: black;"
             mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">account_circle</mat-icon>
         
         <mat-menu #menu="matMenu" class="logoutPopup">
@@ -36,7 +40,7 @@
 
 
               
-                    <h1 style="font-size: 30px;color: aliceblue;"><b>ADD EMPLOYEE</b></h1>
+                    <!-- <h1 style="font-size: 30px;color: aliceblue;"><b>ADD EMPLOYEE</b></h1> -->
 
                     <div style="padding-top: 1px;display: flex;">
                         <div style="display: grid;">
